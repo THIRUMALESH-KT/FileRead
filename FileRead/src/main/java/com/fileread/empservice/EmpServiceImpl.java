@@ -39,10 +39,9 @@ public class EmpServiceImpl implements IEmpService {
 			BufferedReader br=new BufferedReader(new FileReader(file));
 			
 			while((line=br.readLine())!=null) {
-				String[] data=line.split(",");
-
+				String[] data=line.split("[, \\|]");
+				
 				Employee emp=new Employee(Long.valueOf(data[0]), data[1],Double.valueOf(data[2]), data[3]);
-								//Employee emp=new Employee(111l, "THiru", 5000.00, "Kurnool");
 				empRepo.save(emp);
 			}
 		} catch (IOException e) {
