@@ -1,6 +1,11 @@
 package com.fileread.entity;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +18,14 @@ import lombok.NoArgsConstructor;
 public class Employee {
 
 	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
+	@Column(name = "empId")
 	private Long empId;
-	private String empName;
-	private String designation;
+	@Column(name = "empName")
+	private String empName;	
+	@Column(name = "monthlySalary")
 	private Double monthlySalary;
-	private Double AnnualSalary;
-	 
+	@Column(name = "Address")
+	private String Address;
 }
